@@ -3,6 +3,8 @@
 
 class Student {
 private:
+	static int count;
+
 	string name;
 	string surname;
 	int age;
@@ -22,6 +24,8 @@ public:
 	Student(const Student &student);
 
 	~Student();
+
+	static int getCount();
 
 	string get_name();
 	void set_name(string n);

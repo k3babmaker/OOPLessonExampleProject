@@ -1,5 +1,11 @@
 #include "student.h"
 
+int Student::count = 0;
+
+int Student::getCount() {
+	return count;
+}
+
 string Student::get_name() {
 	return name;
 }
@@ -43,6 +49,7 @@ Student::Student() {
 	surname = "no surname";
 	age = 16;
 	avg_mark = 4;
+	count++;
 }
 
 // constructor with params (with args)
@@ -52,22 +59,26 @@ Student::Student(string n, string sname, int a, float mark) {
 	surname = sname;
 	age = a;
 	avg_mark = mark;
+	count++;
 }
 
 Student::Student(string n, string sname) {
 	//cout << "constructor with params" << endl;
 	name = n;
 	surname = sname;
+	count++;
 }
 
 Student::Student(int a) {
 	//cout << "constructor with params" << endl;
 	age = a;
+	count++;
 }
 
 Student::Student(float mark) {
 	//cout << "constructor with params" << endl;
 	avg_mark = mark;
+	count++;
 }
 
 Student::Student(const Student& student) {
@@ -75,10 +86,12 @@ Student::Student(const Student& student) {
 	surname = student.surname;
 	age = student.age;
 	avg_mark = student.avg_mark;
+	count++;
 }
 
 Student::~Student() {
 	//cout << "called Student destructor" << endl;
+	count--;
 }
 
 void Student::init(string n, string sname, int a, float mark) {
